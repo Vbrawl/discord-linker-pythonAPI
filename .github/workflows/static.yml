@@ -25,23 +25,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: python3 -m pip install sphinx furo
       - name: Download Pre-requisites
-      - run: sphinx-apidoc --force -o docs/source/ discord-linker-pythonAPI/
+        run: python3 -m pip install sphinx furo
       - name: Populate Docs
-      - run: cd docs; make html; cd ..
+        run: sphinx-apidoc --force -o docs/source/ discord-linker-pythonAPI/
       - name: Build
+        run: cd docs; make html; cd ..
   prepare:
     runs-on: ubuntu-latest
     steps:
       - name: Move HTML
-      - run: mv docs/build/html ./
+        run: mv docs/build/html ./
       - name: Delete build directory
-      - run: rm -rf docs/build
+        run: rm -rf docs/build
       - name: Move HTML
-      - run: mv html/* docs/*
+        run: mv html/* docs/*
       - name: Delete empty HTML directory
-      - run: rm -rf html
+        run: rm -rf html
   # Single deploy job since we're just deploying
   deploy:
     environment:
