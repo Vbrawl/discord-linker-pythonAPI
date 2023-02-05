@@ -27,6 +27,9 @@ jobs:
     steps:
       - name: Download Pre-requisites
         run: python3 -m pip install sphinx furo
+      - name: Check Directory
+        run: ls
+            pwd
       - name: Populate Docs
         run: sphinx-apidoc --force -o docs/source/ discord-linker-pythonAPI/
       - name: Build
