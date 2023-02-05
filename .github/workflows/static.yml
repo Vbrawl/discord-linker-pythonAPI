@@ -37,13 +37,10 @@ jobs:
     steps:
       - name: Move HTML
       - run: mv docs/build/html ./
-      
       - name: Delete build directory
       - run: rm -rf docs/build
-      
       - name: Move HTML
       - run: mv html/* docs/*
-      
       - name: Delete empty HTML directory
       - run: rm -rf html
   # Single deploy job since we're just deploying
