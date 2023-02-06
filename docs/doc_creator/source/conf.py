@@ -5,7 +5,7 @@
 
 # fix PATH
 import sys
-sys.path.append("../discord-linker-pythonAPI")
+sys.path.append("../../discord-linker-pythonAPI")
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
