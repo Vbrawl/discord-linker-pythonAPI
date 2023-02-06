@@ -29,6 +29,8 @@ jobs:
         run: python3 -m pip install sphinx furo
       - name: Check Directory
         run: ls
+      - name: Check 2
+        run: cd ..; ls
       - name: Populate Docs
         run: sphinx-apidoc --force -o docs/source/ discord-linker-pythonAPI/
       - name: Build
