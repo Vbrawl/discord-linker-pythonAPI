@@ -25,3 +25,5 @@ for i in commands:
 
 for i in os.listdir("build/html"):
     shutil.move(f"build/html/{i}", f"../{i}")
+
+open('../.nojekyll', 'w').close()
