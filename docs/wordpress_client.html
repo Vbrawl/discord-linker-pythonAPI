@@ -267,6 +267,18 @@ parameters (list[str]): A list with the parameters that the API needs.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="wordpress_client.WP_Client.get_account_details">
+<span class="sig-name descname"><span class="pre">get_account_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discord_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/wordpress_client.html#WP_Client.get_account_details"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#wordpress_client.WP_Client.get_account_details" title="Permalink to this definition">#</a></dt>
+<dd><p>Get details about the connected account.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>discord_id (str): The ID of the discord account.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: The details of the linked user.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="wordpress_client.WP_Client.send_request">
 <span class="sig-name descname"><span class="pre">send_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">URL</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'GET'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/wordpress_client.html#WP_Client.send_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#wordpress_client.WP_Client.send_request" title="Permalink to this definition">#</a></dt>
 <dd><p>Send a request of “request_type” to the “URL” with “data” as body.</p>
@@ -365,6 +377,7 @@ data (Optional[dict], optional): The data we want to send. Defaults to None.</p>
 <li><a class="reference internal" href="#wordpress_client.WP_Client.execute_and_check_errors"><code class="docutils literal notranslate"><span class="pre">WP_Client.execute_and_check_errors()</span></code></a></li>
 <li><a class="reference internal" href="#wordpress_client.WP_Client.generate_header"><code class="docutils literal notranslate"><span class="pre">WP_Client.generate_header()</span></code></a></li>
 <li><a class="reference internal" href="#wordpress_client.WP_Client.generate_request"><code class="docutils literal notranslate"><span class="pre">WP_Client.generate_request()</span></code></a></li>
+<li><a class="reference internal" href="#wordpress_client.WP_Client.get_account_details"><code class="docutils literal notranslate"><span class="pre">WP_Client.get_account_details()</span></code></a></li>
 <li><a class="reference internal" href="#wordpress_client.WP_Client.send_request"><code class="docutils literal notranslate"><span class="pre">WP_Client.send_request()</span></code></a></li>
 <li><a class="reference internal" href="#wordpress_client.WP_Client.token_create"><code class="docutils literal notranslate"><span class="pre">WP_Client.token_create()</span></code></a></li>
 <li><a class="reference internal" href="#wordpress_client.WP_Client.token_delete"><code class="docutils literal notranslate"><span class="pre">WP_Client.token_delete()</span></code></a></li>
