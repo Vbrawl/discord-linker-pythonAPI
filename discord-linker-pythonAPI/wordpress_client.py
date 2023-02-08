@@ -168,3 +168,17 @@ class WP_Client:
         """
         status = self.execute_and_check_errors("TOKENS", "create", [])
         return status['link_token']
+    
+
+    def get_account_details(self, discord_id:str) -> dict:
+        """Get details about the connected account.
+
+        Args:
+            discord_id (str): The ID of the discord account.
+
+        Returns:
+            dict: The details of the linked user.
+        """
+        details = self.execute_and_check_errors("DISCORD", "get_account_details", [discord_id])
+
+        return details['details']
