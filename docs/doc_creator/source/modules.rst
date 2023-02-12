@@ -1,4 +1,4 @@
-discord-linker-pythonAPI
+discord_linker_pythonAPI
 ========================
 
 .. toctree::
