@@ -1,4 +1,4 @@
-import wordpress_client as wpc
+import discord_linker_pythonAPI.wordpress_client as wpc
 
 
 
