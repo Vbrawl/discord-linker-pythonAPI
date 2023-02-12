@@ -12,7 +12,7 @@ for i in os.listdir("../"):
 if os.name.lower() == "nt":
     commands:list[list[str]] = [
         ["make.bat", "clean"],
-        ["sphinx-apidoc.exe", "--force", "-o", "./source/", "../../discord-linker-pythonAPI/"],
+        ["sphinx-apidoc.exe", "--force", "-o", "./source/", "../../discord_linker_pythonAPI/"],
         ["make.bat", "html"],
     ]
 
