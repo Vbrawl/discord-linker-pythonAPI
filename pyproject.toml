@@ -9,7 +9,7 @@ authors = [
     { name="Vbrawl", email="konstantosjim@gmail.com" },
 ]
 description = "This is the python API for a wordpress plugin that allows linking discord into your website"
-# readme = ""
+readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
