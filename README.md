@@ -15,7 +15,7 @@ pip install discord-linker-pythonAPI
 ```
 from discord_linker_pythonAPI.wordpress_client import WP_Client
 
-wpclient = WP_Client("<Username>", "<Application Password>")
+wpclient = WP_Client("<URL>", "<Username>", "<Application Password>")
 ```
 
 

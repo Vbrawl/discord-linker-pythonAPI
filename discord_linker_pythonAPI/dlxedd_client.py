@@ -7,17 +7,18 @@ class DLXEDD_Client(wpc.WP_Client):
     methods to use the dlxedd(discord-linker x easy-digital-downloads) api.
     """
 
-    def __init__(self, user:str, password:str):
+    def __init__(self, url:str, user:str, password:str):
         """Initialize the object and login to the wordpress's api,
         It also adds some new endpoints to allow the use of the dlxedd's api.
 
         The new endpoint keys are: ["DLXEDD_CART"]
 
         Args:
+            url (str): The URL of the website.
             user (str): The user we will use to connect.
             password (str): The application specific password.
         """
-        super().__init__(user, password)
+        super().__init__(url, user, password)
 
         self.wp_endpoints["DLXEDD_CART"] = "/dlxedd/v1/cart"
 

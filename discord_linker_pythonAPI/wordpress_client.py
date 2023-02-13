@@ -26,16 +26,16 @@ class WP_Client:
     authenticate with wordpress's rest API.
     """
 
-    def __init__(self, user:str, password:str):
+    def __init__(self, url:str, user:str, password:str):
         """Initialize the object and create
         the authentication token (header key/value).
 
         Args:
+            url (str): The URL of the website.
             user (str): The user we will use to authenticate.
             password (str): The API password generated for this application.
         """
-        self.wp_schema = "http"
-        self.wp_domain = "localhost:8080"
+        self.wp_url = url
 
         self.wp_endpoints = {
             "DISCORD": "/discord_linker/v1/discord",
@@ -73,9 +73,8 @@ class WP_Client:
         Returns:
             str: A string with the URL that calls the API function.
         """
-        return "{wp_schema}://{domain}/index.php?rest_route={endpoint}/{actionAndParams}".format(
-            wp_schema = self.wp_schema,
-            domain = self.wp_domain,
+        return "{url}/index.php?rest_route={endpoint}/{actionAndParams}".format(
+            url = self.wp_url,
             endpoint = self.wp_endpoints[endpoint],
             actionAndParams = '/'.join([action] + parameters)
         )
