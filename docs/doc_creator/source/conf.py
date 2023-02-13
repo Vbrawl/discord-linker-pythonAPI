@@ -13,7 +13,7 @@ sys.path.append("../../discord_linker_pythonAPI")
 project = 'discord-linker-pythonAPI'
 copyright = '2023, Vbrawl'
 author = 'Vbrawl'
-release = '0.1.2'
+release = '0.1.3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
