@@ -30,7 +30,7 @@ class DLXEDD_Client(wpc.WP_Client):
             discord_id (str): The ID of the discord account.
             product_id (str): The ID of the product to add.
         """
-        self.execute_and_check_errors("DLXEDD_CART", "add", [discord_id, str(product_id)])
+        self.execute_and_check_errors("DLXEDD_CART", "add", [discord_id, product_id])
 
 
     def cart_remove(self, discord_id:str, product_id:str):
@@ -40,7 +40,7 @@ class DLXEDD_Client(wpc.WP_Client):
             discord_id (str): The ID of the discord account.
             product_id (str): The ID of the product to remove.
         """
-        self.execute_and_check_errors("DLXEDD_CART", "remove", [discord_id, str(product_id)])
+        self.execute_and_check_errors("DLXEDD_CART", "remove", [discord_id, product_id])
 
     def cart_list(self, discord_id:str) -> list[dict]:
         """Get a list with all the products of the cart.

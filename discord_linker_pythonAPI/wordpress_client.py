@@ -73,6 +73,10 @@ class WP_Client:
         Returns:
             str: A string with the URL that calls the API function.
         """
+
+        # Translate every parameter to str
+        parameters = [str(i) for i in parameters]
+
         return "{url}/index.php?rest_route={endpoint}/{actionAndParams}".format(
             url = self.wp_url,
             endpoint = self.wp_endpoints[endpoint],
