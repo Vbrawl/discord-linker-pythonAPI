@@ -5,14 +5,11 @@ import base64
 
 class WP_Error(Exception):
     """Represents an API (wordpress) error.
+
+    Args:
+        details (dict): The details to store to the object.
     """
     def __init__(self, details:dict, *args, **kwargs):
-        """Initialize the error with the data needed,
-        Store all details to the object.
-
-        Args:
-            details (dict): The details to store to the object.
-        """
         super().__init__(str(details), *args, **kwargs)
         self.__dict__.update(details)
         self.details = details
@@ -24,17 +21,15 @@ class WP_Error(Exception):
 class WP_Client:
     """This client allows to connect and
     authenticate with wordpress's rest API.
+
+
+    Args:
+        url (str): The URL of the website.
+        user (str): The user we will use to authenticate.
+        password (str): The API password generated for this application.
     """
 
     def __init__(self, url:str, user:str, password:str):
-        """Initialize the object and create
-        the authentication token (header key/value).
-
-        Args:
-            url (str): The URL of the website.
-            user (str): The user we will use to authenticate.
-            password (str): The API password generated for this application.
-        """
         self.wp_url = url
 
         self.wp_endpoints = {
