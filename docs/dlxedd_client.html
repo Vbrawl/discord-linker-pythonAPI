@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="wordpress_client module" href="wordpress_client.html" /><link rel="prev" title="discord_linker_pythonAPI" href="modules.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
-        <title>dlxedd_client module - discord-linker-pythonAPI 0.1.4 documentation</title>
+        <title>dlxedd_client module - discord-linker-pythonAPI 0.1.5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">discord-linker-pythonAPI 0.1.4 documentation</div></a>
+      <a href="index.html"><div class="brand">discord-linker-pythonAPI 0.1.5 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">discord-linker-pythonAPI 0.1.4 documentation</span>
+  <span class="sidebar-brand-text">discord-linker-pythonAPI 0.1.5 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -203,6 +203,17 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">WP_Client</span></code></p>
 <p>This class extends WP_Client and provides
 methods to use the dlxedd(discord-linker x easy-digital-downloads) api.</p>
+<p>This class provides access to more endpoints.
+Extra Endpoints:</p>
+<blockquote>
+<div><p>[“DLXEDD_CART”]</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Args:</dt><dd><p>url (str): The URL of the website.
+user (str): The user we will use to connect.
+password (str): The application specific password.</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="dlxedd_client.DLXEDD_Client.cart_add">
 <span class="sig-name descname"><span class="pre">cart_add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discord_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dlxedd_client.html#DLXEDD_Client.cart_add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#dlxedd_client.DLXEDD_Client.cart_add" title="Permalink to this definition">#</a></dt>
