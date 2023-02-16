@@ -1,20 +1,7 @@
 from typing import Optional
 import requests
 import base64
-
-
-class WP_Error(Exception):
-    """Represents an API (wordpress) error.
-
-    Args:
-        details (dict): The details to store to the object.
-    """
-    def __init__(self, details:dict, *args, **kwargs):
-        super().__init__(str(details), *args, **kwargs)
-        self.__dict__.update(details)
-        self.details = details
-
-
+import discord_linker_pythonAPI.errors as errors
 
 
 
@@ -126,7 +113,7 @@ class WP_Client:
         """
         status = self.send_request(self.generate_request(endpoint, action, parameters))
         if status['code'] != "SUCCESS":
-            raise WP_Error(status)
+            raise errors.get_exception(status)
         return status
 
 
