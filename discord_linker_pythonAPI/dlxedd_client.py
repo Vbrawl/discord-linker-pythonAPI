@@ -7,8 +7,7 @@ class DLXEDD_Client(wpc.WP_Client):
     methods to use the dlxedd(discord-linker x easy-digital-downloads) api.
 
     This class provides access to more endpoints.
-    Extra Endpoints:
-        ["DLXEDD_CART"]
+    Extra Endpoints: ["DLXEDD_CART"]
 
     Args:
         url (str): The URL of the website.
