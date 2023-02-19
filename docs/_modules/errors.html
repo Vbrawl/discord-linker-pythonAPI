@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
-        <title>errors - discord-linker-pythonAPI 0.2.1 documentation</title>
+        <title>errors - discord-linker-pythonAPI 0.2.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -122,7 +122,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">discord-linker-pythonAPI 0.2.1 documentation</div></a>
+      <a href="../index.html"><div class="brand">discord-linker-pythonAPI 0.2.2 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -145,7 +145,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   
-  <span class="sidebar-brand-text">discord-linker-pythonAPI 0.2.1 documentation</span>
+  <span class="sidebar-brand-text">discord-linker-pythonAPI 0.2.2 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -220,8 +220,6 @@
 <span class="sd">        default_message (str, optional): The default error message of the exception. Defaults to &quot;An unknown error occurred!&quot;.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">:</span><span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">default_code</span> <span class="o">=</span> <span class="s2">&quot;UNKNOWN_ERROR&quot;</span><span class="p">,</span> <span class="n">default_message</span> <span class="o">=</span> <span class="s2">&quot;An unknown error occurred!&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">default_code</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">default_message</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
@@ -230,7 +228,10 @@
             <span class="k">if</span> <span class="s2">&quot;code&quot;</span> <span class="ow">in</span> <span class="n">details</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">]</span>
             <span class="k">if</span> <span class="s2">&quot;message&quot;</span> <span class="ow">in</span> <span class="n">details</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;message&quot;</span><span class="p">]</span>
             <span class="k">if</span> <span class="s2">&quot;data&quot;</span> <span class="ow">in</span> <span class="n">details</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
-    
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;</span><span class="si">{k}</span><span class="s1">: </span><span class="si">{v}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">details</span><span class="o">.</span><span class="n">items</span><span class="p">()]),</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
 
 <div class="viewcode-block" id="WP_Error.sanitize_kwargs"><a class="viewcode-back" href="../errors.html#errors.WP_Error.sanitize_kwargs">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">sanitize_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">:</span><span class="nb">dict</span><span class="p">):</span>
@@ -415,10 +416,72 @@
 
 
 
-<div class="viewcode-block" id="get_exception"><a class="viewcode-back" href="../errors.html#errors.get_exception">[docs]</a><span class="k">def</span> <span class="nf">get_exception</span><span class="p">(</span><span class="n">details</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">if</span> <span class="s1">&#39;code&#39;</span> <span class="ow">in</span> <span class="n">details</span> <span class="ow">and</span> <span class="n">details</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">ALL_EXCEPTIONS</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">ALL_EXCEPTIONS</span><span class="p">[</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">]](</span><span class="n">details</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
+
+<span class="c1">#################### DLXEDD Errors ####################</span>
+
+<div class="viewcode-block" id="INCORRECT_PRODUCT_ID_TYPE"><a class="viewcode-back" href="../errors.html#errors.INCORRECT_PRODUCT_ID_TYPE">[docs]</a><span class="k">class</span> <span class="nc">INCORRECT_PRODUCT_ID_TYPE</span><span class="p">(</span><span class="n">WP_Error</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">WP_Error</span><span class="o">.</span><span class="n">sanitize_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">details</span><span class="p">,</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+            <span class="n">default_code</span> <span class="o">=</span> <span class="s2">&quot;INCORRECT_PRODUCT_ID_TYPE&quot;</span><span class="p">,</span>
+            <span class="n">default_message</span> <span class="o">=</span> <span class="s2">&quot;Product ID must be integer!&quot;</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+<span class="n">ALL_EXCEPTIONS</span><span class="p">[</span><span class="s2">&quot;INCORRECT_PRODUCT_ID_TYPE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">INCORRECT_PRODUCT_ID_TYPE</span>
+
+
+
+
+<div class="viewcode-block" id="PRODUCT_NOT_FOUND"><a class="viewcode-back" href="../errors.html#errors.PRODUCT_NOT_FOUND">[docs]</a><span class="k">class</span> <span class="nc">PRODUCT_NOT_FOUND</span><span class="p">(</span><span class="n">WP_Error</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">WP_Error</span><span class="o">.</span><span class="n">sanitize_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">details</span><span class="p">,</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+            <span class="n">default_code</span> <span class="o">=</span> <span class="s2">&quot;PRODUCT_NOT_FOUND&quot;</span><span class="p">,</span>
+            <span class="n">default_message</span> <span class="o">=</span> <span class="s2">&quot;There are no products with this ID!&quot;</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+<span class="n">ALL_EXCEPTIONS</span><span class="p">[</span><span class="s2">&quot;PRODUCT_NOT_FOUND&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PRODUCT_NOT_FOUND</span>
+
+
+<div class="viewcode-block" id="PRODUCT_NOT_IN_CART"><a class="viewcode-back" href="../errors.html#errors.PRODUCT_NOT_IN_CART">[docs]</a><span class="k">class</span> <span class="nc">PRODUCT_NOT_IN_CART</span><span class="p">(</span><span class="n">WP_Error</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">WP_Error</span><span class="o">.</span><span class="n">sanitize_kwargs</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">details</span><span class="p">,</span>
+            <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+            <span class="n">default_code</span> <span class="o">=</span> <span class="s2">&quot;PRODUCT_NOT_IN_CART&quot;</span><span class="p">,</span>
+            <span class="n">default_message</span> <span class="o">=</span> <span class="s2">&quot;Your cart doesn&#39;t contain a product with this ID!&quot;</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+<span class="n">ALL_EXCEPTIONS</span><span class="p">[</span><span class="s2">&quot;PRODUCT_NOT_IN_CART&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PRODUCT_NOT_IN_CART</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="viewcode-block" id="get_exception"><a class="viewcode-back" href="../errors.html#errors.get_exception">[docs]</a><span class="k">def</span> <span class="nf">get_exception</span><span class="p">(</span><span class="n">details</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;code&#39;</span> <span class="ow">in</span> <span class="n">details</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">details</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">ALL_EXCEPTIONS</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ALL_EXCEPTIONS</span><span class="p">[</span><span class="n">details</span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">]](</span><span class="n">details</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">details</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;rest_invalid_param&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;details&#39;</span> <span class="ow">in</span> <span class="n">details</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]:</span>
+                <span class="n">error_json</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;details&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">return</span> <span class="n">ALL_EXCEPTIONS</span><span class="p">[</span><span class="n">error_json</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]](</span><span class="n">error_json</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">UNKNOWN_ERROR</span><span class="p">(</span><span class="n">details</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 </pre></div>
         </article>
