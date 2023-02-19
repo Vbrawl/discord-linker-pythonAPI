@@ -23,8 +23,6 @@ class WP_Error(Exception):
         default_message (str, optional): The default error message of the exception. Defaults to "An unknown error occurred!".
     """
     def __init__(self, details:Optional[dict] = None, *args, default_code = "UNKNOWN_ERROR", default_message = "An unknown error occurred!", **kwargs):
-        super().__init__(*args, **kwargs)
-
         self.code = default_code
         self.message = default_message
         self.data = {}
@@ -33,7 +31,10 @@ class WP_Error(Exception):
             if "code" in details: self.code = details["code"]
             if "message" in details: self.message = details["message"]
             if "data" in details: self.data = details["data"]
-    
+            super().__init__('\n'.join(['{k}: {v}'.format(k=k, v=v) for k,v in details.items()]), *args, **kwargs)
+        else:
+            super().__init__(*args, **kwargs)
+
 
     @staticmethod
     def sanitize_kwargs(kwargs:dict):
@@ -218,8 +219,70 @@ ALL_EXCEPTIONS["NOT_IMPERSONATING"] = NOT_IMPERSONATING
 
 
 
-def get_exception(details, *args, **kwargs):
-    if 'code' in details and details['code'] in ALL_EXCEPTIONS:
-        return ALL_EXCEPTIONS[details["code"]](details, *args, **kwargs)
 
+
+#################### DLXEDD Errors ####################
+
+class INCORRECT_PRODUCT_ID_TYPE(WP_Error):
+    def __init__(self, details:dict, *args, **kwargs):
+        WP_Error.sanitize_kwargs(kwargs)
+
+        super().__init__(
+            details,
+            *args,
+            default_code = "INCORRECT_PRODUCT_ID_TYPE",
+            default_message = "Product ID must be integer!",
+            **kwargs)
+ALL_EXCEPTIONS["INCORRECT_PRODUCT_ID_TYPE"] = INCORRECT_PRODUCT_ID_TYPE
+
+
+
+
+class PRODUCT_NOT_FOUND(WP_Error):
+    def __init__(self, details:dict, *args, **kwargs):
+        WP_Error.sanitize_kwargs(kwargs)
+
+        super().__init__(
+            details,
+            *args,
+            default_code = "PRODUCT_NOT_FOUND",
+            default_message = "There are no products with this ID!",
+            **kwargs)
+ALL_EXCEPTIONS["PRODUCT_NOT_FOUND"] = PRODUCT_NOT_FOUND
+
+
+class PRODUCT_NOT_IN_CART(WP_Error):
+    def __init__(self, details:dict, *args, **kwargs):
+        WP_Error.sanitize_kwargs(kwargs)
+
+        super().__init__(
+            details,
+            *args,
+            default_code = "PRODUCT_NOT_IN_CART",
+            default_message = "Your cart doesn't contain a product with this ID!",
+            **kwargs)
+ALL_EXCEPTIONS["PRODUCT_NOT_IN_CART"] = PRODUCT_NOT_IN_CART
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def get_exception(details:dict, *args, **kwargs):
+    if 'code' in details:
+        if details['code'] in ALL_EXCEPTIONS:
+            return ALL_EXCEPTIONS[details["code"]](details, *args, **kwargs)
+        elif details['code'] == 'rest_invalid_param':
+            if 'details' in details['data']:
+                error_json = list(details['data']['details'].values())[0]
+                return ALL_EXCEPTIONS[error_json['code']](error_json, *args, **kwargs)
     return UNKNOWN_ERROR(details, *args, **kwargs)
