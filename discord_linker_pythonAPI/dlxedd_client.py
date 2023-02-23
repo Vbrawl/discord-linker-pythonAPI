@@ -58,3 +58,11 @@ class DLXEDD_Client(wpc.WP_Client):
         """
         lst = self.execute_and_check_errors("DLXEDD_CART", "list", [discord_id])
         return lst["data"]
+    
+    def cart_clear(self, discord_id:str) -> None:
+        """Clear the cart of the user.
+
+        Args:
+            discord_id (str): The discord ID of the cart's account.
+        """
+        self.execute_and_check_errors("DLXEDD_CART", 'clear', [discord_id])
