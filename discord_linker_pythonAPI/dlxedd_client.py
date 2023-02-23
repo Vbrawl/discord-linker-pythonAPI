@@ -1,4 +1,7 @@
+from typing import Optional
 import discord_linker_pythonAPI.wordpress_client as wpc
+from datetime import datetime, tzinfo
+from pytz import timezone
 
 
 
@@ -7,7 +10,7 @@ class DLXEDD_Client(wpc.WP_Client):
     methods to use the dlxedd(discord-linker x easy-digital-downloads) api.
 
     This class provides access to more endpoints.
-    Extra Endpoints: ["DLXEDD_CART"]
+    Extra Endpoints: ["DLXEDD_CART", "DLXEDD_PRODUCTS"]
 
     Args:
         url (str): The URL of the website.
@@ -19,6 +22,7 @@ class DLXEDD_Client(wpc.WP_Client):
         super().__init__(url, user, password)
 
         self.wp_endpoints["DLXEDD_CART"] = "/dlxedd/v1/cart"
+        self.wp_endpoints["DLXEDD_PRODUCTS"] = "/dlxedd/v1/products"
 
 
     def cart_add(self, discord_id:str, product_id:str) -> dict:
@@ -66,3 +70,22 @@ class DLXEDD_Client(wpc.WP_Client):
             discord_id (str): The discord ID of the cart's account.
         """
         self.execute_and_check_errors("DLXEDD_CART", 'clear', [discord_id])
+    
+
+    def get_products(self, from_datetime:Optional[datetime] = None, tz_info:tzinfo = timezone("GMT")) -> list[dict]:
+        """Get a list of products that were added after the specified date.
+
+        Args:
+            from_datetime (datetime, optional): The oldest acceptable date, if None, all products are returned. Defaults to None.
+            tzinfo (tzinfo, optional): _description_. Defaults to timezone("GMT").
+
+        Returns:
+            list[dict]: A list of dictionaries representing the list of products of the website.
+        """
+
+
+        if from_datetime is not None:
+            epoch = str(int(from_datetime.astimezone(tz_info).timestamp()))
+        else:
+            epoch = "0"
+        return self.execute_and_check_errors("DLXEDD_PRODUCTS", "get_products", [epoch])["data"]
