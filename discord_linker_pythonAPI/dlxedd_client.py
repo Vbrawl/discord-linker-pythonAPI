@@ -77,7 +77,7 @@ class DLXEDD_Client(wpc.WP_Client):
 
         Args:
             from_datetime (datetime, optional): The oldest acceptable date, if None, all products are returned. Defaults to None.
-            tzinfo (tzinfo, optional): _description_. Defaults to timezone("GMT").
+            tzinfo (tzinfo, optional): Convert from_datetime to this timezone (Should not be changed). Defaults to timezone("GMT").
 
         Returns:
             list[dict]: A list of dictionaries representing the list of products of the website.
