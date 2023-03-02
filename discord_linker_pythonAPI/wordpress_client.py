@@ -17,7 +17,7 @@ class WP_Client:
     """
 
     def __init__(self, url:str, user:str, password:str):
-        self.wp_url = url
+        self.wp_url = url.rstrip('/')
 
         self.wp_endpoints = {
             "DISCORD": "/discord_linker/v1/discord",
