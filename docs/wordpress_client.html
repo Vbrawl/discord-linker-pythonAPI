@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="errors module" href="errors.html" />
 
     <!-- Generated with Sphinx 6.1.3 and Furo 2022.12.07 -->
-        <title>wordpress_client module - discord-linker-pythonAPI 0.2.5 documentation</title>
+        <title>wordpress_client module - discord-linker-pythonAPI 0.2.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
@@ -123,7 +123,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="index.html"><div class="brand">discord-linker-pythonAPI 0.2.5 documentation</div></a>
+      <a href="index.html"><div class="brand">discord-linker-pythonAPI 0.2.6 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -146,7 +146,7 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   
-  <span class="sidebar-brand-text">discord-linker-pythonAPI 0.2.5 documentation</span>
+  <span class="sidebar-brand-text">discord-linker-pythonAPI 0.2.6 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -210,6 +210,16 @@ user (str): The user we will use to authenticate.
 password (str): The API password generated for this application.</p>
 </dd>
 </dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="wordpress_client.WP_Client.check_credentials">
+<span class="sig-name descname"><span class="pre">check_credentials</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/wordpress_client.html#WP_Client.check_credentials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#wordpress_client.WP_Client.check_credentials" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks if the credentials are correct.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: True if login was successful, False if login was not successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="wordpress_client.WP_Client.discord_link">
 <span class="sig-name descname"><span class="pre">discord_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">discord_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">link_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wordpress_client.html#WP_Client.discord_link"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#wordpress_client.WP_Client.discord_link" title="Permalink to this definition">#</a></dt>
@@ -372,6 +382,7 @@ data (Optional[dict], optional): The data we want to send. Defaults to None.</p>
             <ul>
 <li><a class="reference internal" href="#">wordpress_client module</a><ul>
 <li><a class="reference internal" href="#wordpress_client.WP_Client"><code class="docutils literal notranslate"><span class="pre">WP_Client</span></code></a><ul>
+<li><a class="reference internal" href="#wordpress_client.WP_Client.check_credentials"><code class="docutils literal notranslate"><span class="pre">WP_Client.check_credentials()</span></code></a></li>
 <li><a class="reference internal" href="#wordpress_client.WP_Client.discord_link"><code class="docutils literal notranslate"><span class="pre">WP_Client.discord_link()</span></code></a></li>
 <li><a class="reference internal" href="#wordpress_client.WP_Client.discord_unlink"><code class="docutils literal notranslate"><span class="pre">WP_Client.discord_unlink()</span></code></a></li>
 <li><a class="reference internal" href="#wordpress_client.WP_Client.execute_and_check_errors"><code class="docutils literal notranslate"><span class="pre">WP_Client.execute_and_check_errors()</span></code></a></li>
