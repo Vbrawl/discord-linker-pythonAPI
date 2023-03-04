@@ -21,7 +21,8 @@ class WP_Client:
 
         self.wp_endpoints = {
             "DISCORD": "/discord_linker/v1/discord",
-            "TOKENS": "/discord_linker/v1/tokens"
+            "TOKENS": "/discord_linker/v1/tokens",
+            "API": "/discord_linker/v1/api"
         }
         self.wp_header:dict = {}
 
@@ -167,3 +168,15 @@ class WP_Client:
         details = self.execute_and_check_errors("DISCORD", "get_account_details", [discord_id])
 
         return details['details']
+    
+    def check_credentials(self) -> bool:
+        """Checks if the credentials are correct.
+
+        Returns:
+            bool: True if login was successful, False if login was not successful.
+        """
+        try:
+            self.execute_and_check_errors("API", "credential_check", [])
+        except errors.WP_Error:
+            return False
+        return True
